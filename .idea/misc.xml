@@ -6,7 +6,11 @@
         <entry key="..\:/Kalkulator/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
         <entry key="..\:/Kalkulator/app/src/main/res/drawable/button_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Kalkulator/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Kalkulator/app/src/main/res/drawable/test.xml" value="0.22135416666666666" />
+        <entry key="..\:/Kalkulator/app/src/main/res/drawable/testingdrawable.xml" value="0.22135416666666666" />
         <entry key="..\:/Kalkulator/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Kalkulator/app/src/main/res/layout/activity_math_page.xml" value="0.20520833333333333" />
+        <entry key="..\:/Kalkulator/app/src/main/res/layout/math_page.xml" value="0.22010869565217392" />
       </map>
     </option>
   </component>

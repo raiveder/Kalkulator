@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".MainActivity">
+    tools:context=".MathPage">
 
     <TextView
         android:id="@+id/firstNumber"
@@ -102,7 +102,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:insetTop="0dp"
                 android:textSize="12pt"
                 android:text="9" />
 
@@ -146,13 +145,13 @@
                 android:text="6" />
 
             <android.widget.Button
-                android:id="@+id/plus"
+                android:id="@+id/power"
                 android:background="@drawable/button_background"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="12pt"
-                android:text="+" />
+                android:text="^" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
@@ -185,13 +184,13 @@
                 android:textSize="12pt" />
 
             <android.widget.Button
-                android:id="@+id/minus"
+                android:id="@+id/root"
                 android:background="@drawable/button_background"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="12pt"
-                android:text="-" />
+                android:text="√" />
         </TableRow>
 
         <TableRow android:layout_weight="1">
@@ -215,22 +214,22 @@
                 android:text="0" />
 
             <android.widget.Button
-                android:id="@+id/multiply"
+                android:id="@+id/sinus"
                 android:background="@drawable/button_background"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="12pt"
-                android:text="*" />
+                android:text="sin" />
 
             <android.widget.Button
-                android:id="@+id/divide"
+                android:id="@+id/cosinus"
                 android:background="@drawable/button_background"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="12pt"
-                android:text="/" />
+                android:text="cos" />
             <android.widget.Button
                 android:id="@+id/transition"
                 android:background="@drawable/button_background"
@@ -238,7 +237,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="12pt"
-                android:text="next" />
+                android:text="back" />
         </TableRow>
     </TableLayout>
 

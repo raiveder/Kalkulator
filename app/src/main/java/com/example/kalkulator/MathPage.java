@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MathPage extends AppCompatActivity implements View.OnClickListener {
     TextView firstNumber;
     TextView action;
     TextView secondNumber;
@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button seven;
     Button eight;
     Button nine;
-    Button plus;
-    Button minus;
-    Button multiply;
-    Button divide;
+    Button sinus;
+    Button cosinus;
+    Button power;
+    Button root;
     Button clear;
     Button equals;
     Button transition;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.math_page);
 
         act = "";
         fnum = true;
@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         seven = findViewById(R.id.seven);
         eight = findViewById(R.id.eight);
         nine = findViewById(R.id.nine);
-        plus = findViewById(R.id.plus);
-        minus = findViewById(R.id.minus);
-        multiply = findViewById(R.id.multiply);
-        divide = findViewById(R.id.divide);
+        sinus = findViewById(R.id.sinus);
+        cosinus = findViewById(R.id.cosinus);
+        power = findViewById(R.id.power);
+        root = findViewById(R.id.root);
         clear = findViewById(R.id.clear);
         equals = findViewById(R.id.equals);
         transition = findViewById(R.id.transition);
@@ -78,14 +78,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         seven.setOnClickListener(this);
         eight.setOnClickListener(this);
         nine.setOnClickListener(this);
-        plus.setOnClickListener(this);
-        minus.setOnClickListener(this);
-        multiply.setOnClickListener(this);
-        divide.setOnClickListener(this);
+        sinus.setOnClickListener(this);
+        cosinus.setOnClickListener(this);
+        power.setOnClickListener(this);
+        root.setOnClickListener(this);
         clear.setOnClickListener(this);
         equals.setOnClickListener(this);
         transition.setOnClickListener((view -> {
-            Intent intent = new Intent(MainActivity.this,MathPage.class);
+            Intent intent = new Intent(MathPage.this, MainActivity.class);
             startActivity(intent);
         }));
     }
@@ -105,44 +105,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.nine:
                 Button button = (Button) view;
                 String numtext;
-                if (fnum){
+                if (fnum) {
                     numtext = firstNumber.getText().toString();
                     numtext += button.getText().toString();
                     firstNumber.setText(numtext);
-                }
-                else{
+                } else {
                     numtext = secondNumber.getText().toString();
                     numtext += button.getText().toString();
                     secondNumber.setText(numtext);
                 }
                 break;
-            case R.id.plus:
-            case R.id.minus:
-            case R.id.multiply:
-            case R.id.divide:
+            case R.id.power:
+            case R.id.root:
                 Button button1 = (Button) view;
                 act = button1.getText().toString();
                 action.setText(act);
                 fnum = !fnum;
                 break;
+            case R.id.sinus:
+            case R.id.cosinus:
+                Button button2 = (Button) view;
+                act = button2.getText().toString();
+                firstNumber.setText(act);
+                fnum = !fnum;
+                break;
             case R.id.equals:
-                if (!firstNumber.getText().toString().equals(""))
-                {
+                if (!firstNumber.getText().toString().equals("")) {
                     if (!secondNumber.getText().toString().equals("")) {
-                        float num1 = Float.valueOf(firstNumber.getText().toString());
-                        float num2 = Float.valueOf(secondNumber.getText().toString());
-                        float res = 0;
-                        if (act.equals("*")) {
-                            res = num1 * num2;
-                        }
-                        if (act.equals("/")) {
-                            res = num1 / num2;
-                        }
-                        if (act.equals("+")) {
-                            res = num1 + num2;
-                        }
-                        if (act.equals("-")) {
-                            res = num1 - num2;
+                        double num2 = Double.valueOf(secondNumber.getText().toString());
+                        double res = 0;
+                        if (firstNumber.getText().toString().equals("sin")) {
+                            res = Math.sin(num2);
+                        } else if (firstNumber.getText().toString().equals("cos")) {
+                            res = Math.cos(num2);
+                        } else {
+                            double num1 = Float.valueOf(firstNumber.getText().toString());
+                            if (act.equals("^")) {
+                                res = Math.pow(num1, num2);
+                            }
+                            if (act.equals("√")) {
+                                res = Math.pow(num1, 1 / num2);
+                            }
                         }
                         fnum = true;
                         equaly.setText("=");
