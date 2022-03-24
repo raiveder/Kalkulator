@@ -7,6 +7,15 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:id="@+id/array_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/result"
+        android:background="@drawable/button_background"/>
+
     <TextView
         android:id="@+id/firstNumber"
         android:layout_width="0dp"
@@ -14,7 +23,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonTable"
         app:layout_constraintEnd_toStartOf="@id/action"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/array_spinner"
         android:gravity="center"
         android:textSize="12pt"
         android:textColor="@color/white" />
@@ -26,7 +35,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonTable"
         app:layout_constraintEnd_toStartOf="@id/secondNumber"
         app:layout_constraintStart_toEndOf="@id/firstNumber"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/array_spinner"
         android:gravity="center"
         android:textSize="12pt"
         android:textColor="@color/white" />
@@ -38,7 +47,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonTable"
         app:layout_constraintEnd_toStartOf="@id/equaly"
         app:layout_constraintStart_toEndOf="@id/action"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/array_spinner"
         android:gravity="center"
         android:textSize="12pt"
         android:textColor="@color/white" />
@@ -50,7 +59,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonTable"
         app:layout_constraintEnd_toStartOf="@id/result"
         app:layout_constraintStart_toEndOf="@id/secondNumber"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/array_spinner"
         android:gravity="center"
         android:textSize="12pt"
         android:textColor="@color/white" />
@@ -62,7 +71,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonTable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/equaly"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/array_spinner"
         android:gravity="center"
         android:textSize="12pt"
         android:textColor="@color/white" />

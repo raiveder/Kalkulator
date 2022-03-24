@@ -5,10 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    Spinner spinner;
+    String[] str_array;
+
     TextView firstNumber;
     TextView action;
     TextView secondNumber;
@@ -40,6 +46,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        spinner = findViewById(R.id.array_spinner);
+        str_array = new String[]{"История","","","","","","","","","",""};
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, str_array);
+        spinner.setAdapter(adapter1);
 
         act = "";
         fnum = true;
@@ -129,9 +140,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (!firstNumber.getText().toString().equals(""))
                 {
                     if (!secondNumber.getText().toString().equals("")) {
+                        float res = 0;
                         float num1 = Float.valueOf(firstNumber.getText().toString());
                         float num2 = Float.valueOf(secondNumber.getText().toString());
-                        float res = 0;
                         if (act.equals("*")) {
                             res = num1 * num2;
                         }
@@ -147,7 +158,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         fnum = true;
                         equaly.setText("=");
                         result.setText(String.valueOf(res));
+
+                        for (int i = 10; i>0;i--)
+                        {
+                            str_array[i] = str_array[i-1];
+                        }
+                        str_array[1] = String.valueOf(res);
                     }
+
                 }
                 break;
             case R.id.clear:

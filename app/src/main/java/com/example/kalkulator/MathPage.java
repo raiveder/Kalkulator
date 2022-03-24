@@ -5,10 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MathPage extends AppCompatActivity implements View.OnClickListener {
+
+    Spinner spinner;
+    String[] str_array;
+
     TextView firstNumber;
     TextView action;
     TextView secondNumber;
@@ -40,6 +46,11 @@ public class MathPage extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.math_page);
+
+        spinner = findViewById(R.id.array_spinner);
+        str_array = new String[]{"История","","","","","","","","","",""};
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, str_array);
+        spinner.setAdapter(adapter1);
 
         act = "";
         fnum = true;
@@ -150,8 +161,15 @@ public class MathPage extends AppCompatActivity implements View.OnClickListener 
                         fnum = true;
                         equaly.setText("=");
                         result.setText(String.valueOf(res));
+
+                        for (int i = 10; i>0;i--)
+                        {
+                            str_array[i] = str_array[i-1];
+                        }
+                        str_array[1] = String.valueOf(res);
                     }
                 }
+
                 break;
             case R.id.clear:
                 firstNumber.setText("");
